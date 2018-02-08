@@ -1,0 +1,195 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<!-- Include meta tag to ensure proper rendering and touch zooming -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- Include Cordova script -->
+	<script src="cordova.js"></script>
+	<!-- Include the jQuery library -->
+	<script src="./js/jquery-1.11.3.min.js"></script>
+	<!-- Include the jQuery Mobile library -->
+	<script src="./js/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!-- Include jQuery Mobile stylesheets -->
+	<link rel="stylesheet" href="./js/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+	<!-- Include Custom stylesheets -->
+	<link rel="stylesheet" href="./css/recom.css"/>
+	<title>Login</title>
+</head>
+<body>
+	
+	<div data-role="page" id="paglogin">
+		<div id="theHeader" data-role="header" data-position="fixed">
+			<a href="#" data-rel="back" data-icon="arrow-l">Atrás</a>
+			<h1>XYZ</h1>
+			<a href="#complet_perfil" data-icon="user">Perfil</a>
+		</div>
+		<div data-role="content">	
+			<img src="./img/test.jpg" class="recom_img"/>
+			<p class="recom_title">El asesor personal para tu carrera profesional</p>
+			<p class="recom_subtitle">Toma decisiones informadas sobre tu carrera teniendo en cuenta la compatibilidad de personalidad y los datos más recientes sobre empleos</p>
+			<form id="login">
+				Email:<br/>
+				<input type="text" name="email"/>
+				<br/>
+				Contraseña:<br/>
+				<input type="text" name="password"/><br/>
+				<input type="button" id="registry" value="Registrarse/Entrar"/><br/>
+				<input type="button" id="skip_registry" value="Omitir Registro"/><br/>
+			</form>
+		</div>
+	</div>
+	
+	<div data-role="page" id="localizacion">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">¡Encuentra las mejores carreras cerca de ti! </p>
+			<p class="recom_subtitle">La tasa de desempleo mundial está en 12% pero estas industrias estan creciendo: </p>
+			<ul>
+				<li>Software +137%</li>
+				<li>Ingeniería +112%</li>
+				<li>Educación +97%</li>
+			</ul>
+			<p class="recom_subtitle">¡Encontremos las industrias de mayor crecimiento en tu área basándonos en tu ubicación!</p>
+			<form>
+				<input id="recom_gps" type="button" value="Activa el GPS para localización rápida"/><br/>
+				O ingresa tu ubicación manualmente<br/>
+				Seleccione el departamento :
+				<select id="department" name ="departments">
+					<option value="">Seleccione Departamento...</option>
+					<option value="Cundinamarca">Cundinamarca</option>
+					<option value="Antioquia">Antioquia</option>
+				</select>
+				<br />
+				Ciudades en el departamento :
+				<select name ="cities" id ="city">
+					<option value="">Seleccione Ciudad...</option>
+					<option value="Bogotá">Bogotá</option>
+					<option value="Chía">Chía</option>
+					<option value="Girardot">Girardot</option>
+					<option value="Mosquera">Mosquera</option>
+				</select>
+				<input id="local_next" type="button" value="Siguiente"/>
+			</form>
+
+
+		</div>
+	</div>
+	<div data-role="page" id="industrias_cercanas">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">¡Estas son las industrias que encontré cerca de ti!</p>
+			<p class="recom_subtitle">Puedo asesorarte mejor si completas tu perfil </p>
+			<p>Al diligenciar este formulario XYZ se sentirá más familiar y además ayudarás a mejorar las experiencias futuras</p>
+			<form>
+				<input type="button" id="indust_no" value="No, Gracias"/> 
+				<input type="button" id="indust_si" value="Completar mi perfil"/><br/>
+			</form>
+		</div>
+	</div>
+	<div data-role="page" id="perfil">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">Completa tu perfil</p>
+			<form id="profile_form">
+				<input type="button" id="profile_fb" value="Usar Facebook para perfil rápido"/> 
+				<p>O completa tu perfil manualmente</p>
+				<input type="button" id="profile_foto" value="Añadir foto del perfil"/><br/>
+				Nombre:<input type="text" id="profile_nombre"/><br/>
+				Apellido:<input type="text" id="profile_apellido"/><br/>
+				Edad:<input type="text" id="profile_edad"/><br/>
+				Estudios: 
+				<select id ="profile_studies">
+					<option value="">Seleccione Nivel de Estudios...</option>
+					<option value="Primaria">Primaria</option>
+					<option value="Bachillerato">Bachillerato</option>
+					<option value="Pregrado">Pregrado</option>
+					<option value="Especializ">Especialización</option>
+					<option value="Maestria">Maestría</option>
+					<option value="Doctorado">Doctorado</option>
+				</select>
+				<p class="recom_title">Responde un breve cuestionario de personalidad para encontrar industrias compatibles.</p>
+				<p>Si respondes un cuestionario de 10 preguntas de selección múltiple, podré descubrir las industrias más compatibles contigo.</p>
+				<input type="button" id="profile_no" value="No, gracias, soy tímido"/> 
+				<input type="button" id="profile_si" value="Responder el cuestionario"/><br/>
+			</form>
+		</div>
+	</div>
+	<div data-role="page" id="omit_cuestionario">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">No importa, aquí hay algunas áreas en las que puedes estar interesado</p>
+			<p class="recom_subtitle">Si cambias de parecer puedes responder el cuestionario después</p>
+			<p class="recom_title">Veamos algunos resultados</p>
+			<p class="recom_subtitle">Tengo información valiosa sobre diferentes industrias, pero mientras no completes lo tuyo, los resultados pueden estar incompletos.</p>
+			<p>No te preocupes, puedes completar tu información después</p>
+			<form>
+				<input type="button" id="omit_ques_btn" value="Ver Resultados"/>
+			</form>
+		</div>
+	</div>
+	<div data-role="page" id="omit_registro">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">¡No hay problema! Puedes hacerlo en cualquier momento.</p>
+			<p>Desde el menú puedes adicionar información al perfil o modificarla si cambias de parecer.</p>
+			<p class="recom_title">Responde un breve cuestionario de personalidad para encontrar industrias compatibles.</p>
+			<p>Si respondes un cuestionario de 10 preguntas de selección múltiple, podré descubrir las industrias más compatibles contigo.</p>
+			<form>
+				<input type="button" id="omit_reg_no" value="No, gracias, soy tímido"/> 
+				<input type="button" id="omit_reg_si" value="Responder el cuestionario"/><br/>
+			</form>
+		</div>
+	</div>
+	<div data-role="page" id="cuestionario">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">Pregunta 1</p>
+			<p class="recom_subtitle">¿Hasta qué página de resultados de Google vas antes de intentar una nueva búsqueda?</p>
+			<form>
+				<input type="range" name="points" min="0" max="5">
+				<input type="button" id="quest_next" value="Siguiente"/><br/>
+			</form>	
+		</div>
+	</div>
+	<div data-role="page" id="resultados">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">Resultados</p>
+		</div>
+	</div>
+	<div data-role="page" id="area">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">Area Seleccionada: Tecnología</p>
+		</div>
+	</div>
+	<div data-role="page" id="complet_perfil">
+		<div class="withHeader"></div>
+		<div data-role="content">	
+			<p class="recom_title">Completa tu perfil</p>
+			<form id="profile_form">
+				<input type="button" id="comp_profile_fb" value="Usar Facebook para perfil rápido"/> 
+				<p>O completa tu perfil manualmente</p>
+				<input type="button" id="comp_profile_foto" value="Añadir foto del perfil"/><br/>
+				Nombre:<input type="text" id="comp_profile_nombre"/><br/>
+				Apellido:<input type="text" id="comp_profile_apellido"/><br/>
+				Edad:<input type="text" id="comp_profile_edad"/><br/>
+				Estudios: 
+				<select id ="comp_profile_studies">
+					<option value="">Seleccione Nivel de Estudios...</option>
+					<option value="Primaria">Primaria</option>
+					<option value="Bachillerato">Bachillerato</option>
+					<option value="Pregrado">Pregrado</option>
+					<option value="Especializ">Especialización</option>
+					<option value="Maestria">Maestría</option>
+					<option value="Doctorado">Doctorado</option>
+				</select><br/>
+				<input type="button" id="comp_profile" value="Guardar tu perfil"/> 
+			</form>
+		</div>
+	</div>
+
+	<!-- Include the Custom library -->
+	<script src="./js/recomV0.1.js"></script>
+</body>
+</html>

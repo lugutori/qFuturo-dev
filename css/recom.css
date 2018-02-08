@@ -1,0 +1,24 @@
+img.recom_img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto ;
+	max-width: 80%;
+	top:10%;
+	left: 10%;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+}
+p.recom_title{
+	text-align: center;
+	font-size: 20px;
+	margin-left:auto;
+	margin-right: auto;
+	top:10%;
+}
+p.recom_subtitle{
+	text-align: center;
+	font-size: 12px;
+	margin-left:auto;
+	margin-right: auto;
+	top:10%;
+}
